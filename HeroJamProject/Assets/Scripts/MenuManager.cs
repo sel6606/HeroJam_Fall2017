@@ -43,6 +43,15 @@ public class MenuManager : MonoBehaviour {
     }
 
     /// <summary>
+    /// Load Credits
+    /// 
+    /// </summary>
+    public void LoadCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
+    /// <summary>
     /// Game Over screen
     /// </summary>
     public void GameOver()
