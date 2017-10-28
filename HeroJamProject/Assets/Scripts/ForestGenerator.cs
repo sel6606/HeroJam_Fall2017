@@ -8,6 +8,7 @@ using UnityEngine;
 public class ForestGenerator : MonoBehaviour
 {
     public ForestCell cellPrefab;
+    public GameObject playerPrefab;
 
     public int sizeX;
     public int sizeZ;
@@ -76,6 +77,10 @@ public class ForestGenerator : MonoBehaviour
 
         //Tell GameInfo that the forest has now been completely generated
         GameInfo.instance.ForestGenerated = true;
+
+        GameObject tempPlayer = Instantiate(playerPrefab);
+        tempPlayer.transform.position = new Vector3(0, 2, 0);
+
 
     }
 
