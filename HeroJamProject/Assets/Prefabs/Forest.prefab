@@ -53,6 +53,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellPrefab: {fileID: 114346724536055802, guid: 4c81dd98b2453a841bfaa4af584921b6,
     type: 2}
+  playerPrefab: {fileID: 0}
+  walls:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  wallCol: []
   sizeX: 4
   sizeZ: 4
+  increaseSpeed: 0
+  increaseSpeedTime: 0
   burnChance: 0.25
