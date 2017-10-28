@@ -12,6 +12,8 @@ public class ForestCell : MonoBehaviour
     public Material burnedMat;
     public IntVector2 coordinates;
     public GameObject firePrefab;
+    public GameObject burnt;
+    public GameObject unburnt;
     #endregion
 
     #region Class Variables
@@ -72,6 +74,9 @@ public class ForestCell : MonoBehaviour
         fire = Instantiate(firePrefab);
         fire.transform.parent = gameObject.transform;
         fire.transform.localPosition = Vector3.zero;
+
+        ChangeLayersRecursively(burnt.transform, "Visible");
+        ChangeLayersRecursively(unburnt.transform, "Hidden");
     }
 
     /// <summary>
@@ -81,6 +86,20 @@ public class ForestCell : MonoBehaviour
     {
         fireExtinguished = true;
         Destroy(fire);
+    }
+
+    /// <summary>
+    /// Recursively changes the layer of a hierarchy of objects
+    /// </summary>
+    /// <param name="trans">The transform of the top object in the hierarchy</param>
+    /// <param name="layer">The layer to change the objects to</param>
+    public void ChangeLayersRecursively(Transform trans, string layer)
+    {
+        trans.gameObject.layer = LayerMask.NameToLayer(layer);
+        foreach (Transform child in trans)
+        {
+            ChangeLayersRecursively(child, layer);
+        }
     }
 
 
