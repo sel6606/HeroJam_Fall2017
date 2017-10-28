@@ -29,7 +29,6 @@ public class GameInfo : MonoBehaviour
     }
     #endregion
 
-
     private void Awake()
     {
         //If there is not already a GameInfo object, set it to this

@@ -37,6 +37,11 @@ public class PlayerMovement : MonoBehaviour
             movementDirection *= speed;
         }
 
+        if(Input.GetMouseButton(0) && gameObject.GetComponentInChildren<ParticleSystem>().)
+        {
+            gameObject.GetComponentInChildren<ParticleSystem>().Play;
+        }
+
         movementDirection.y -= 9.8f * Time.deltaTime;
         character.Move(movementDirection * Time.deltaTime);
 
