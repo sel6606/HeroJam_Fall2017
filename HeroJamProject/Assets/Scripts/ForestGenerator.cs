@@ -10,6 +10,11 @@ public class ForestGenerator : MonoBehaviour
     public ForestCell cellPrefab;
     public GameObject playerPrefab;
 
+
+    public GameObject[] walls;
+    public BoxCollider[] wallCol;
+    
+
     public int sizeX;
     public int sizeZ;
 
@@ -26,6 +31,13 @@ public class ForestGenerator : MonoBehaviour
         GameInfo.instance.BurnChance = burnChance;
         GenerateForest();
         timeElapsed = 0;
+
+        wallCol = new BoxCollider[4];
+        for (int i = 0; i < 4; i++)
+        {
+            wallCol[i] = walls[i].GetComponent<BoxCollider>();
+        }
+        GenerateWalls();
 	}
 	
 	// Update is called once per frame
@@ -37,6 +49,7 @@ public class ForestGenerator : MonoBehaviour
             GameInfo.instance.BurnChance += 0.01f;
             timeElapsed = 0.0f;
         }
+
 
 	}
 
@@ -82,6 +95,28 @@ public class ForestGenerator : MonoBehaviour
         tempPlayer.transform.position = new Vector3(0, 2, 0);
 
 
+    }
+
+
+    /// <summary>
+    /// Takes the 4 invisble wall objects resizes them and postitions them to stop players from leaveing the map.
+    /// </summary>
+    void GenerateWalls()
+    {
+       
+            
+       
+        walls[0].transform.position = new Vector3(0, 1, sizeZ);
+        wallCol[0].size = new Vector3(sizeX * 2, 1, 1);
+
+        walls[1].transform.position = new Vector3(0, 1, -sizeZ);
+        wallCol[1].size = new Vector3(sizeX * 2, 1, 1);
+
+        walls[2].transform.position = new Vector3(sizeX, 1, 0);
+        wallCol[2].size = new Vector3(1, 1,sizeZ * 2);
+
+        walls[3].transform.position = new Vector3(-sizeX, 1, 0);
+        wallCol[3].size = new Vector3(1, 1, sizeZ * 2);
     }
 
 
