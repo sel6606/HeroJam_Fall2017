@@ -78,17 +78,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\BehaviourManager.cs" />
     <Compile Include="Assets\Scripts\BoundingSphere.cs" />
     <Compile Include="Assets\Scripts\ForestCell.cs" />
     <Compile Include="Assets\Scripts\ForestGenerator.cs" />
     <Compile Include="Assets\Scripts\IntVector2.cs" />
     <Compile Include="Assets\Scripts\MovementForces.cs" />
-    <Compile Include="Assets\Scripts\NavMeshLink.cs" />
-    <Compile Include="Assets\Scripts\NavMeshModifier.cs" />
-    <Compile Include="Assets\Scripts\NavMeshModifierVolume.cs" />
-    <Compile Include="Assets\Scripts\NavMeshSurface.cs" />
-    <Compile Include="Assets\Scripts\NavigationBaker.cs" />
+    <Compile Include="Assets\Scripts\NavMeshScripts\BehaviourManager.cs" />
+    <Compile Include="Assets\Scripts\NavMeshScripts\NavMeshLink.cs" />
+    <Compile Include="Assets\Scripts\NavMeshScripts\NavMeshModifier.cs" />
+    <Compile Include="Assets\Scripts\NavMeshScripts\NavMeshModifierVolume.cs" />
+    <Compile Include="Assets\Scripts\NavMeshScripts\NavMeshSurface.cs" />
+    <Compile Include="Assets\Scripts\NavMeshScripts\NavigationBaker.cs" />
     <Compile Include="Assets\Scripts\SceneMode.cs" />
     <Compile Include="Assets\Scripts\TerrainGenerator.cs" />
   </ItemGroup>
