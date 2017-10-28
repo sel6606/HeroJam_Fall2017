@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     float horizontalView;
     float verticalView;
 
+    
+
     #endregion
 
     // Use this for initialization
