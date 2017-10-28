@@ -809,7 +809,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.5, y: 156}
+  m_AnchoredPosition: {x: 13.5, y: 169}
   m_SizeDelta: {x: 747, y: 118}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1479486991
@@ -833,7 +833,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 2f4ff175b48e04348b81588ec4da0a79, type: 3}
-    m_FontSize: 75
+    m_FontSize: 90
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -844,7 +844,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Wildfire Animal Saver
+  m_Text: Wildfire Fox Saver
 --- !u!222 &1479486992
 CanvasRenderer:
   m_ObjectHideFlags: 0
