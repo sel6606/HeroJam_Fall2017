@@ -194,6 +194,7 @@ MonoBehaviour:
     type: 2}
   sizeX: 50
   sizeZ: 50
+  increaseSpeed: 0
   increaseSpeedTime: 5
   burnChance: 0.01
 --- !u!1 &1127837924
