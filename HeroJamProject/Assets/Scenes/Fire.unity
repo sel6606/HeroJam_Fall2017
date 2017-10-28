@@ -190,8 +190,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellPrefab: {fileID: 114955421880053510, guid: e4409bbf60bc27b4286d0e32e818f440,
     type: 2}
-  sizeX: 100
-  sizeZ: 100
+  sizeX: 50
+  sizeZ: 50
+  increaseSpeedTime: 5
   burnChance: 0.01
 --- !u!1 &1127837924
 GameObject:

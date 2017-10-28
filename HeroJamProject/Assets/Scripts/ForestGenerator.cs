@@ -12,21 +12,31 @@ public class ForestGenerator : MonoBehaviour
     public int sizeX;
     public int sizeZ;
 
+    public float increaseSpeedTime;
+
     public float burnChance;
 
     private ForestCell[,] cells;
+    private float timeElapsed;
 
 	// Use this for initialization
 	void Start ()
     {
         GameInfo.instance.BurnChance = burnChance;
         GenerateForest();
+        timeElapsed = 0;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-		
+        timeElapsed += Time.deltaTime;
+        if(timeElapsed >= increaseSpeedTime)
+        {
+            GameInfo.instance.BurnChance += 0.01f;
+            timeElapsed = 0.0f;
+        }
+
 	}
 
     /// <summary>
