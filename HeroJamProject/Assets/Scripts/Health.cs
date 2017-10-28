@@ -40,8 +40,17 @@ public class Health : MonoBehaviour {
         {
             onFire = false;
         }
-        Debug.Log(onFire);
+        //Debug.Log(onFire);
     }
 
-    
+    private void OnParticleTrigger()
+    {
+        Debug.Log("IT WORKED FUCK YEAH");
+        if(gameObject.GetComponent<ForestCell>().OnFire)
+        {
+            gameObject.GetComponent<ForestCell>().Extinguish();
+        }
+    }
+
+
 }

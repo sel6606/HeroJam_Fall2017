@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 65587961931377622}
   m_Layer: 0
   m_Name: Quad
-  m_TagString: Untagged
+  m_TagString: Cell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 114413744023789824}
   m_Layer: 0
   m_Name: TreeTerrain
-  m_TagString: Untagged
+  m_TagString: Cell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

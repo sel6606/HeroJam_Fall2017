@@ -17,6 +17,9 @@ public class ForestCell : MonoBehaviour
     #region Class Variables
     private bool onFire;
     private bool setOnFire;
+    private bool fireExtinguished;
+
+    private GameObject fire;
     #endregion
 
     #region Properties
@@ -48,6 +51,12 @@ public class ForestCell : MonoBehaviour
             onFire = true;
             setOnFire = false;
         }
+
+        if(fireExtinguished)
+        {
+            onFire = false;
+            fireExtinguished = false;
+        }
     }
 
     /// <summary>
@@ -60,9 +69,19 @@ public class ForestCell : MonoBehaviour
         gameObject.tag = "OnFire";
 
         //Instantiate a fire and parent it to this cell
-        GameObject fire = Instantiate(firePrefab);
+        fire = Instantiate(firePrefab);
         fire.transform.parent = gameObject.transform;
         fire.transform.localPosition = Vector3.zero;
     }
+
+    /// <summary>
+    /// Extinguishes the fire on this cell
+    /// </summary>
+    public void Extinguish()
+    {
+        fireExtinguished = true;
+        Destroy(fire);
+    }
+
 
 }
