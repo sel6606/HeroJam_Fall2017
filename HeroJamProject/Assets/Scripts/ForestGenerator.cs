@@ -12,11 +12,14 @@ public class ForestGenerator : MonoBehaviour
     public int sizeX;
     public int sizeZ;
 
+    public float burnChance;
+
     private ForestCell[,] cells;
 
 	// Use this for initialization
 	void Start ()
     {
+        GameInfo.instance.BurnChance = burnChance;
         GenerateForest();
 	}
 	
@@ -43,6 +46,7 @@ public class ForestGenerator : MonoBehaviour
     {
         cells = new ForestCell[sizeX, sizeZ];
 
+        //Create the cells
         for(int i = 0; i < sizeX; i++)
         {
             for(int j=0; j < sizeZ; j++)
@@ -50,6 +54,18 @@ public class ForestGenerator : MonoBehaviour
                 CreateCell(i, j);
             }
         }
+
+
+        //Set fires on 4 random cells
+        IntVector2 randomFire;
+        for(int i = 0; i < 4; i++)
+        {
+            randomFire = new IntVector2(Random.Range(0, sizeX), Random.Range(0, sizeZ));
+            GetCell(randomFire).SetFire();
+        }
+
+        //Tell GameInfo that the forest has now been completely generated
+        GameInfo.instance.ForestGenerated = true;
 
     }
 
