@@ -192,7 +192,7 @@ MonoBehaviour:
     type: 2}
   sizeX: 10
   sizeZ: 10
-  burnChance: 0.1
+  burnChance: 0.01
 --- !u!1 &1127837924
 GameObject:
   m_ObjectHideFlags: 0

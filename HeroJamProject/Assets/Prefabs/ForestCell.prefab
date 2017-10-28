@@ -152,3 +152,4 @@ MonoBehaviour:
   coordinates:
     x: 0
     y: 0
+  firePrefab: {fileID: 1064287575274210, guid: 55c9d0c8bdd5ed84b9a0559948628963, type: 2}

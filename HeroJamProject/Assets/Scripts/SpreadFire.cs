@@ -10,48 +10,33 @@ public class SpreadFire : MonoBehaviour
 
     public float secToWait;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
         neighbors = new List<ForestCell>();
         neighborsRetrieved = false;
         timeSinceSpreadCall = 0.0f;
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    }
+
+    // Update is called once per frame
+    void Update()
     {
-		if(GameInfo.instance.ForestGenerated && !neighborsRetrieved)
+        if (GameInfo.instance.ForestGenerated && !neighborsRetrieved)
         {
             GetNeighbors();
         }
 
-        if(!gameObject.GetComponent<ForestCell>().BurnedOut)
+        //If this cell is not yet on fire, do spread calculations
+        if (!gameObject.GetComponent<ForestCell>().OnFire && timeSinceSpreadCall >= secToWait)
         {
-            //If this cell is not yet on fire, do spread calculations
-            if (!gameObject.GetComponent<ForestCell>().OnFire && timeSinceSpreadCall >= secToWait)
-            {
-                Spread();
-                timeSinceSpreadCall = 0.0f;
-            }
-            else if (gameObject.GetComponent<ForestCell>().OnFire && timeSinceSpreadCall >= secToWait)
-            {
-                float rand = Random.Range(0.0f, 0.1f);
-
-                //If the random number is less than the probability, start burning
-                if (rand < GameInfo.instance.BurnChance)
-                {
-                    gameObject.GetComponent<ForestCell>().BurnOut();
-                }
-
-                timeSinceSpreadCall = 0.0f;
-            }
+            Spread();
+            timeSinceSpreadCall = 0.0f;
         }
 
 
         timeSinceSpreadCall += Time.deltaTime;
 
-	}
+    }
 
     /// <summary>
     /// Simulates the spread of fires to each neighbor
@@ -60,10 +45,10 @@ public class SpreadFire : MonoBehaviour
     {
         int neighborsBurning = 0;
 
-        if(neighborsRetrieved)
+        if (neighborsRetrieved)
         {
             //Determine how many neighbors are already burning
-            foreach(ForestCell neighbor in neighbors)
+            foreach (ForestCell neighbor in neighbors)
             {
                 if (neighbor.OnFire)
                 {
@@ -77,12 +62,12 @@ public class SpreadFire : MonoBehaviour
 
             burningProp = (float)neighborsBurning / neighborsNotBurning;
 
-            if(burningProp >= 0.25)
+            if (burningProp >= 0.25)
             {
                 float rand = Random.Range(0.0f, 0.1f);
 
                 //If the random number is less than the probability, start burning
-                if(rand < GameInfo.instance.BurnChance)
+                if (rand < GameInfo.instance.BurnChance)
                 {
                     gameObject.GetComponent<ForestCell>().SetFire();
                 }
@@ -110,7 +95,7 @@ public class SpreadFire : MonoBehaviour
             IntVector2 cellToGet = position + ForestDirections.ToIntVector2((Direction)i);
 
             //If the coordinates calculated are part of the forest, retrieve that cell and add it to the list
-            if(forest.ContainsCoordinates(cellToGet))
+            if (forest.ContainsCoordinates(cellToGet))
             {
                 ForestCell temp = forest.GetCell(cellToGet);
                 neighbors.Add(temp);

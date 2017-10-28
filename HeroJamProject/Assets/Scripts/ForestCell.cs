@@ -10,10 +10,9 @@ public class ForestCell : MonoBehaviour
     public Material burningMat;
     public Material burnedMat;
     public IntVector2 coordinates;
+    public GameObject firePrefab;
 
     private bool onFire;
-    private bool burnedOut;
-    private bool justBurnedOut;
     private bool setOnFire;
 
 
@@ -21,12 +20,6 @@ public class ForestCell : MonoBehaviour
     {
         get { return onFire; }
         set { onFire = value; }
-    }
-
-    public bool BurnedOut
-    {
-        get { return burnedOut; }
-        set { burnedOut = value; }
     }
 
     // Use this for initialization
@@ -47,12 +40,6 @@ public class ForestCell : MonoBehaviour
             onFire = true;
             setOnFire = false;
         }
-
-        if(justBurnedOut)
-        {
-            onFire = false;
-            burnedOut = true;
-        }
     }
 
     /// <summary>
@@ -63,17 +50,9 @@ public class ForestCell : MonoBehaviour
         setOnFire = true;
         gameObject.GetComponentInChildren<Renderer>().material = burningMat;
         gameObject.tag = "OnFire";
-    }
-
-    /// <summary>
-    /// Marks this tile as burned out
-    /// </summary>
-    public void BurnOut()
-    {
-        justBurnedOut = true;
-        gameObject.GetComponentInChildren<Renderer>().material = burnedMat;
-        gameObject.tag = "BurnedOut";
-
+        GameObject fire = Instantiate(firePrefab);
+        fire.transform.parent = gameObject.transform;
+        fire.transform.localPosition = Vector3.zero;
     }
 
 }
