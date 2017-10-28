@@ -13,6 +13,7 @@ public class ForestGenerator : MonoBehaviour
     public int sizeX;
     public int sizeZ;
 
+    public bool increaseSpeed;
     public float increaseSpeedTime;
 
     public float burnChance;
@@ -32,7 +33,7 @@ public class ForestGenerator : MonoBehaviour
 	void Update ()
     {
         timeElapsed += Time.deltaTime;
-        if(timeElapsed >= increaseSpeedTime)
+        if(timeElapsed >= increaseSpeedTime && increaseSpeed)
         {
             GameInfo.instance.BurnChance += 0.01f;
             timeElapsed = 0.0f;
