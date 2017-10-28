@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlaneMovement : MonoBehaviour {
+public class PlaneMovement : MonoBehaviour
+{
 
 
     public Vector3 velocity;
     public Vector3 direction;
+    public Vector3 turning;
     public Vector3 acceleration;
     public Vector3 vehiclePosition;
 
+    public Vector3 gravity; 
     public float mass;
     public float angleToRot;
     public float speed;
@@ -17,18 +20,31 @@ public class PlaneMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         vehiclePosition = transform.position;
+        
 
-
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
 
-        direction = transform.eulerAngles.normalized;
+        //direction = new Vector3(Input.GetAxis("Vertical"),0,0);
+        direction = gameObject.transform.forward;
         direction *= speed;
-        ApplyForce(direction);
+        //ApplyForce(direction);
+
+       
+        RotatePlaneForward(angleToRot);
+        
+        
+        
+        
+        
+        
+        
+        
+        
         // Add accel to velocity
-        velocity += acceleration * Time.deltaTime;
+        velocity += direction * Time.deltaTime;
 
         //velocity = velocity *  direction * Time.deltaTime;
 
@@ -51,13 +67,13 @@ public class PlaneMovement : MonoBehaviour {
         acceleration += force / mass;
     }
 
-    public void RotatePlaneSides(float angle)
-    {
-        transform.Rotate(transform.forward, angle);
-    }
     public void RotatePlaneForward(float angle)
     {
-        transform.Rotate(transform.up, angle);
+        transform.Rotate(transform.right, angle);
+    }
+    public void RotatePlaneSide(float angle)
+    {
+        transform.Rotate(transform.forward, angle);
     }
 
 }
