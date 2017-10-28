@@ -37,9 +37,17 @@ public class PlayerMovement : MonoBehaviour
             movementDirection *= speed;
         }
 
-        if(Input.GetMouseButton(0) && gameObject.GetComponentInChildren<ParticleSystem>().)
+        if(Input.GetMouseButton(0))
         {
-            gameObject.GetComponentInChildren<ParticleSystem>().Play;
+            if(gameObject.GetComponentInChildren<ParticleSystem>().isStopped)
+            {
+                gameObject.GetComponentInChildren<ParticleSystem>().Play();
+            } 
+        }
+        else if (gameObject.GetComponentInChildren<ParticleSystem>().isPlaying)
+        {
+            gameObject.GetComponentInChildren<ParticleSystem>().Stop();
+            gameObject.GetComponentInChildren<ParticleSystem>().Clear();
         }
 
         movementDirection.y -= 9.8f * Time.deltaTime;
