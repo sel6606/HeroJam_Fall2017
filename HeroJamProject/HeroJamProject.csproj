@@ -90,9 +90,6 @@
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\SpreadFire.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\ProjectSettings\ProjectVersion.txt" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
 </Project>

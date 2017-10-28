@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class Health : MonoBehaviour {
 
-    CharacterController Character;
-    GameObject player;
+    
+  
 
     GameObject manager;
     HoldingVar health;
 
-    BoxCollider box;
+   
     bool onFire;
 
 
 	// Use this for initialization
 	void Start ()
     {
-        player = GameObject.Find("Player");
+       
         manager = GameObject.Find("SceneManager");
         health = manager.GetComponent<HoldingVar>();
 	}
@@ -26,7 +26,7 @@ public class Health : MonoBehaviour {
 	void Update ()
     {
 
-        OnTriggerStay(player.GetComponent<Collider>());
+        
 	}
 
     private void OnTriggerStay(Collider other)
@@ -34,6 +34,7 @@ public class Health : MonoBehaviour {
         if (gameObject.tag == "OnFire") 
         {
             onFire = true;
+            health.Damage();
         }
         else
         {
@@ -41,4 +42,6 @@ public class Health : MonoBehaviour {
         }
         Debug.Log(onFire);
     }
+
+    
 }

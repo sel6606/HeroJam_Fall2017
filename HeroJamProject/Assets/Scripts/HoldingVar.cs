@@ -7,12 +7,21 @@ public class HoldingVar : MonoBehaviour {
     public float health;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 		
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void Update ()
+    {
+        Debug.Log(health);
 	}
+
+    public void Damage()
+    {
+        health -= Time.deltaTime;
+        health = Mathf.Clamp(health, 0f, 1000f);
+
+    }
 }
