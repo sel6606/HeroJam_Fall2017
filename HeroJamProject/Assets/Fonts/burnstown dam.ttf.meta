@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 2f4ff175b48e04348b81588ec4da0a79
+timeCreated: 1509151294
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Burnstown Dam
+  fontNames:
+  - Burnstown Dam
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
