@@ -190,8 +190,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellPrefab: {fileID: 114275123512657616, guid: 4c81dd98b2453a841bfaa4af584921b6,
     type: 2}
-  sizeX: 10
-  sizeZ: 10
+  sizeX: 100
+  sizeZ: 100
   burnChance: 0.01
 --- !u!1 &1127837924
 GameObject:
@@ -340,8 +340,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2066407484}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 20, z: 0}
+  m_LocalRotation: {x: 0.093020745, y: 0.89265275, z: -0.21590269, w: 0.38458323}
+  m_LocalPosition: {x: -108.63498, y: 43.374596, z: 93.009}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
