@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
 
     #endregion
 
+   
+
     // Use this for initialization
     
     void Start ()
@@ -26,7 +28,8 @@ public class PlayerMovement : MonoBehaviour
         character = GetComponent<CharacterController>();
         horizontalView = 0;
         verticalView = 0;
-		
+
+        
 	}
 	
 	// Update is called once per frame
@@ -53,7 +56,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         movementDirection.y -= 9.8f * Time.deltaTime;
+
+       
         character.Move(movementDirection * Time.deltaTime);
+        
+        
 
         PlayerRotation();
 	}
