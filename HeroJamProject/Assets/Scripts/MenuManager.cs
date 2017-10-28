@@ -43,6 +43,15 @@ public class MenuManager : MonoBehaviour {
     }
 
     /// <summary>
+    /// Game Over screen
+    /// </summary>
+    public void GameOver()
+    {
+        SceneManager.LoadScene("GameOver");
+    }
+
+
+    /// <summary>
     /// Quit the Game
     /// </summary>
     public void QuitGame()
