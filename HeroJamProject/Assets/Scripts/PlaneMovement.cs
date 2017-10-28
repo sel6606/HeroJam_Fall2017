@@ -12,6 +12,7 @@ public class PlaneMovement : MonoBehaviour {
 
     public float mass;
     public float angleToRot;
+    public float speed;
 
 	// Use this for initialization
 	void Start () {
@@ -23,15 +24,19 @@ public class PlaneMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        
+        direction = transform.eulerAngles.normalized;
+        direction *= speed;
+        ApplyForce(direction);
         // Add accel to velocity
         velocity += acceleration * Time.deltaTime;
+
+        //velocity = velocity *  direction * Time.deltaTime;
 
         // Add velocity to pos
         vehiclePosition += velocity * Time.deltaTime;
 
         // Derive direction from velocity
-        direction = velocity.normalized;
+        //direction = velocity.normalized;
 
         // "Draw" object at its position
         transform.position = vehiclePosition;
@@ -52,7 +57,7 @@ public class PlaneMovement : MonoBehaviour {
     }
     public void RotatePlaneForward(float angle)
     {
-
+        transform.Rotate(transform.up, angle);
     }
 
 }
