@@ -55,3 +55,4 @@ MonoBehaviour:
     type: 2}
   sizeX: 4
   sizeZ: 4
+  burnChance: 0.25
