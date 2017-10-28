@@ -46,6 +46,7 @@ public class ForestGenerator : MonoBehaviour
     {
         cells = new ForestCell[sizeX, sizeZ];
 
+        //Create the cells
         for(int i = 0; i < sizeX; i++)
         {
             for(int j=0; j < sizeZ; j++)
@@ -55,17 +56,13 @@ public class ForestGenerator : MonoBehaviour
         }
 
 
-        IntVector2 randomFire = new IntVector2(Random.Range(0, sizeX), Random.Range(0, sizeZ));
-        Debug.Log(randomFire.x + " " + randomFire.y);
-
-        GetCell(randomFire).SetFire();
-
-        randomFire = new IntVector2(Random.Range(0, sizeX), Random.Range(0, sizeZ));
-        GetCell(randomFire).SetFire();
-        randomFire = new IntVector2(Random.Range(0, sizeX), Random.Range(0, sizeZ));
-        GetCell(randomFire).SetFire();
-        randomFire = new IntVector2(Random.Range(0, sizeX), Random.Range(0, sizeZ));
-        GetCell(randomFire).SetFire();
+        //Set fires on 4 random cells
+        IntVector2 randomFire;
+        for(int i = 0; i < 4; i++)
+        {
+            randomFire = new IntVector2(Random.Range(0, sizeX), Random.Range(0, sizeZ));
+            GetCell(randomFire).SetFire();
+        }
 
         //Tell GameInfo that the forest has now been completely generated
         GameInfo.instance.ForestGenerated = true;

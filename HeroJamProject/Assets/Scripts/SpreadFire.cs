@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Script that contains methods for the spreading of fire
+/// </summary>
 public class SpreadFire : MonoBehaviour
 {
     private float timeSinceSpreadCall;

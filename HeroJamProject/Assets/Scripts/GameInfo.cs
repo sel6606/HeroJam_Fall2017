@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Singleton that holds various info that can be accessed from anywhere
+/// </summary>
 public class GameInfo : MonoBehaviour
 {
     //Represents the game info that is stored across all scenes
