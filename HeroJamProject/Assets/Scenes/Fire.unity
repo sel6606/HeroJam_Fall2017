@@ -188,10 +188,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c84fab672d505649b8e5271b1895708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cellPrefab: {fileID: 114275123512657616, guid: 4c81dd98b2453a841bfaa4af584921b6,
+  cellPrefab: {fileID: 114346724536055802, guid: 4c81dd98b2453a841bfaa4af584921b6,
     type: 2}
-  sizeX: 100
-  sizeZ: 100
+  sizeX: 30
+  sizeZ: 30
   burnChance: 0.01
 --- !u!1 &1127837924
 GameObject:
