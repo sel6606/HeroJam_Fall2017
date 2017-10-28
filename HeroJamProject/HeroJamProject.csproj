@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\ForestCell.cs" />
     <Compile Include="Assets\Scripts\ForestGenerator.cs" />
     <Compile Include="Assets\Scripts\IntVector2.cs" />
+    <Compile Include="Assets\Scripts\PlaneMovement.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
