@@ -26,12 +26,28 @@ public class SpreadFire : MonoBehaviour
             GetNeighbors();
         }
 
-        //If this cell is not yet on fire, do spread calculations
-        if(!gameObject.GetComponent<ForestCell>().OnFire && timeSinceSpreadCall >= secToWait)
+        if(!gameObject.GetComponent<ForestCell>().BurnedOut)
         {
-            Spread();
-            timeSinceSpreadCall = 0.0f;
+            //If this cell is not yet on fire, do spread calculations
+            if (!gameObject.GetComponent<ForestCell>().OnFire && timeSinceSpreadCall >= secToWait)
+            {
+                Spread();
+                timeSinceSpreadCall = 0.0f;
+            }
+            else if (gameObject.GetComponent<ForestCell>().OnFire && timeSinceSpreadCall >= secToWait)
+            {
+                float rand = Random.Range(0.0f, 0.1f);
+
+                //If the random number is less than the probability, start burning
+                if (rand < GameInfo.instance.BurnChance)
+                {
+                    gameObject.GetComponent<ForestCell>().BurnOut();
+                }
+
+                timeSinceSpreadCall = 0.0f;
+            }
         }
+
 
         timeSinceSpreadCall += Time.deltaTime;
 

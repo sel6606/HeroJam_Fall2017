@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - OnFire
+  - BurnedOut
   layers:
   - Default
   - TransparentFX

@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   burningMat: {fileID: 2100000, guid: 8160f795de4998e48b2e15a53dfab7e7, type: 2}
+  burnedMat: {fileID: 2100000, guid: 16519d0c200f6384db02b1f9d59d9702, type: 2}
   coordinates:
     x: 0
     y: 0

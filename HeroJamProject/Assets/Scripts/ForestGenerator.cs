@@ -60,6 +60,13 @@ public class ForestGenerator : MonoBehaviour
 
         GetCell(randomFire).SetFire();
 
+        randomFire = new IntVector2(Random.Range(0, sizeX), Random.Range(0, sizeZ));
+        GetCell(randomFire).SetFire();
+        randomFire = new IntVector2(Random.Range(0, sizeX), Random.Range(0, sizeZ));
+        GetCell(randomFire).SetFire();
+        randomFire = new IntVector2(Random.Range(0, sizeX), Random.Range(0, sizeZ));
+        GetCell(randomFire).SetFire();
+
         //Tell GameInfo that the forest has now been completely generated
         GameInfo.instance.ForestGenerated = true;
 
