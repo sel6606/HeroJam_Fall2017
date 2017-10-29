@@ -1367,6 +1367,7 @@ MonoBehaviour:
     type: 2}
   playerPrefab: {fileID: 1070849595643766, guid: 27b792d36a789a84a84abf1a211a5dfb,
     type: 2}
+  sManager: {fileID: 1826025681}
   walls:
   - {fileID: 1830885584}
   - {fileID: 5864750}

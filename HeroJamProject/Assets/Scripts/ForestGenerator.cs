@@ -9,6 +9,7 @@ public class ForestGenerator : MonoBehaviour
 {
     public ForestCell cellPrefab;
     public GameObject playerPrefab;
+    public GameObject sManager;
 
 
     public GameObject[] walls;
@@ -150,6 +151,8 @@ public class ForestGenerator : MonoBehaviour
         Vector3 cellPos = new Vector3(xPos - sizeX * 0.5f + 0.5f, 0f, zPos - sizeZ * 0.5f + 0.5f);
         cellPos *= 2;
         newCell.transform.localPosition = cellPos;
+
+        newCell.GetComponent<Health>().manager = sManager;
 
         return newCell;
     }
