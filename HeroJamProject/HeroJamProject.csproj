@@ -89,6 +89,8 @@
     <Compile Include="Assets\Scripts\ParticleCollisions.cs" />
     <Compile Include="Assets\Scripts\PlaneMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\RescueAnimal.cs" />
+    <Compile Include="Assets\Scripts\SpawnAnimals.cs" />
     <Compile Include="Assets\Scripts\SpreadFire.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
