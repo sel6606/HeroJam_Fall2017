@@ -80,6 +80,9 @@ public class SpawnAnimals : MonoBehaviour {
         // match the images with the gameObjects
         if (GameInfo.instance.FoxCount == 3)
         {
+            GameInfo.instance.gameObject.GetComponent<Timer>().mainS = false;
+            GameInfo.instance.gameObject.GetComponent<Timer>().gOver = false;
+            GameInfo.instance.gameObject.GetComponent<Timer>().levelCom = true;
             fox3.enabled = true;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;

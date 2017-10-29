@@ -25,6 +25,9 @@ public class HoldingVar : MonoBehaviour {
     {
         if (health == 0 )
         {
+            GameInfo.instance.gameObject.GetComponent<Timer>().mainS = false;
+            GameInfo.instance.gameObject.GetComponent<Timer>().gOver = true;
+            GameInfo.instance.gameObject.GetComponent<Timer>().levelCom = false;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene("GameOver");

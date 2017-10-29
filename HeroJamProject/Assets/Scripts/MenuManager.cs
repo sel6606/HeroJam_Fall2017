@@ -23,7 +23,15 @@ public class MenuManager : MonoBehaviour {
     /// </summary>
     public void StartGame()
     {
+        if (GameInfo.instance != null)
+        {
+            GameInfo.instance.gameObject.GetComponent<Timer>().mainS = true;
+            GameInfo.instance.gameObject.GetComponent<Timer>().gOver = false;
+            GameInfo.instance.gameObject.GetComponent<Timer>().levelCom = false;
+        }
+       
         SceneManager.LoadScene("MainScene");
+
     }
 
     /// <summary>
@@ -56,6 +64,9 @@ public class MenuManager : MonoBehaviour {
     /// </summary>
     public void GameOver()
     {
+        GameInfo.instance.gameObject.GetComponent<Timer>().mainS = false;
+        GameInfo.instance.gameObject.GetComponent<Timer>().gOver = true;
+        GameInfo.instance.gameObject.GetComponent<Timer>().levelCom = false;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene("GameOver");
