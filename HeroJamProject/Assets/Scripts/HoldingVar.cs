@@ -16,6 +16,8 @@ public class HoldingVar : MonoBehaviour {
     {
         maxHealth = health;
         barWidth = bar.rectTransform.sizeDelta.x;
+
+        HealthBar();
     }
 	
 	// Update is called once per frame
@@ -27,28 +29,29 @@ public class HoldingVar : MonoBehaviour {
             Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene("GameOver");
         }
-        HealthBar();
     }
 
     public void Damage()
     {
         health -= Time.deltaTime;
-        Debug.Log("health" + health);
+        //Debug.Log("health" + health);
        
         health = Mathf.Clamp(health, 0f, 1000f);
-        Debug.Log("max health" + maxHealth);
+        //Debug.Log("max health" + maxHealth);
+
+        HealthBar();
         
     }
 
     public void HealthBar()
     {
         float percentHealth = health / maxHealth;
-        Debug.Log("percentHealth" + percentHealth);
+        //Debug.Log("percentHealth" + percentHealth);
        
         float healthLeft = barWidth * percentHealth;
-        Debug.Log("barWidth" + barWidth);
+        //Debug.Log("barWidth" + barWidth);
         RectTransform innerBar = bar.GetComponent<RectTransform>();
-        Debug.Log("inner Bar size Delta" + innerBar.sizeDelta.x);
+        //Debug.Log("inner Bar size Delta" + innerBar.sizeDelta.x);
         innerBar.sizeDelta = new Vector2(healthLeft, bar.rectTransform.sizeDelta.y);
         
         innerBar.anchoredPosition = new Vector2(healthLeft/2 +6 , innerBar.anchoredPosition.y);
