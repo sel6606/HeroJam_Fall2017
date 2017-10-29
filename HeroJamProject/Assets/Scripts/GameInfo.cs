@@ -13,6 +13,7 @@ public class GameInfo : MonoBehaviour
     #region Class Variables
     private bool forestGenerated;
     private float burnChance;
+    private int foxCount;
     #endregion
 
     #region Properties
@@ -20,6 +21,12 @@ public class GameInfo : MonoBehaviour
     {
         get { return forestGenerated; }
         set { forestGenerated = value; }
+    }
+
+    public int FoxCount
+    {
+        get { return foxCount; }
+        set { foxCount = value; }
     }
 
     public float BurnChance
