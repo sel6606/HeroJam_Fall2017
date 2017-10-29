@@ -1,11 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnAnimals : MonoBehaviour {
 
     // take a reference to a prefab to spawn
     public GameObject animal;
+
+    // get a reference to the fox icons
+    public RawImage fox1;
+    public RawImage fox2;
+    public RawImage fox3;
+
+    public Texture foxCollected;
+    public Texture foxDanger;
+
+    // get a reference to the rescue animal script
+    public RescueAnimal rescueScript;
 
     // get a reference to the forest cell positions
     public GameObject forestMnger;
@@ -25,33 +37,52 @@ public class SpawnAnimals : MonoBehaviour {
     private bool samePos = false;
 
     public int animalCount = 0;
+    private int foxCount = 3;
 
 	// Use this for initialization
 	void Start ()
     {
         // referece to forestGen script
         forestGen = forestMnger.GetComponent<ForestGenerator>();
+        rescueScript = animal.GetComponent<RescueAnimal>();
+
+        // reset the icons to false so that they don't show up as rescued at the start
+        fox1.enabled = false;
+        fox2.enabled = false;
+        fox3.enabled = false;
 
         // instantiate the list
         animalSpawns = new List<IntVector2>();
-        /*
-        for (int i = 0; i < animalCount; i++)
-        {
-            SpawnAnimal();
-        }
-        */
     }
 
     // Update is called once per frame
     void Update ()
     {
         // spawn animals
-        if(animalCount<20)
+        if(animalCount<foxCount)
         {
             SpawnAnimal();
         }
-    }
 
+        // match the images with the gameObjects
+        if (GameInfo.instance.FoxCount == 1)
+        {
+            fox1.enabled = true;
+        }
+        // match the images with the gameObjects
+        if (GameInfo.instance.FoxCount == 2)
+        {
+            fox2.enabled = true;
+        }
+        // match the images with the gameObjects
+        if (GameInfo.instance.FoxCount == 3)
+        {
+            fox3.enabled = true;
+        }
+    }
+    /// <summary>
+    /// Method to spawn an animal into the world
+    /// </summary>
     void SpawnAnimal()
     {
         // generate random ints
@@ -85,7 +116,7 @@ public class SpawnAnimals : MonoBehaviour {
                 Vector3 tempSpawn = new Vector3(spawnCell.transform.position.x, spawnCell.transform.position.y + 0.2f, spawnCell.transform.position.z);
 
                 // instantiate the object in the world on the cell
-                Instantiate(animal, tempSpawn, Quaternion.identity);
+                GameObject tempObj = Instantiate(animal, tempSpawn, Quaternion.identity);
 
                 // increment the animal spawn counter
                 animalCount++;

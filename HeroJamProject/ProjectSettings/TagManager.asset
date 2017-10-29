@@ -6,6 +6,9 @@ TagManager:
   tags:
   - OnFire
   - BurnedOut
+  - FoxIcon1
+  - FoxIcon2
+  - FoxIcon3
   layers:
   - Default
   - TransparentFX
