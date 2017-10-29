@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour {
     public float score;
     public float health;
 
-    bool level
+    bool level;
 	// Use this for initialization
 	void Start ()
     {
