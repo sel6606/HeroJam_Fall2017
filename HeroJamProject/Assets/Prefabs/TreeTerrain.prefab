@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 65587961931377622}
   m_Layer: 0
   m_Name: Quad
-  m_TagString: Untagged
+  m_TagString: Cell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -240,9 +240,11 @@ GameObject:
   - component: {fileID: 4909312966111650}
   - component: {fileID: 114346724536055802}
   - component: {fileID: 114344842305890632}
+  - component: {fileID: 65577204236863448}
+  - component: {fileID: 114413744023789824}
   m_Layer: 0
   m_Name: TreeTerrain
-  m_TagString: Untagged
+  m_TagString: Cell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1210,6 +1212,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1820099329892304}
   m_Mesh: {fileID: 4300008, guid: 06dc973e9ed82874795105aacf804a90, type: 3}
+--- !u!65 &65577204236863448
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1795995776486526}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65587961931377622
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1285,3 +1299,14 @@ MonoBehaviour:
     x: 0
     y: 0
   firePrefab: {fileID: 1064287575274210, guid: 55c9d0c8bdd5ed84b9a0559948628963, type: 2}
+--- !u!114 &114413744023789824
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1795995776486526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bce74ed918a28454db34fe2a579eb034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

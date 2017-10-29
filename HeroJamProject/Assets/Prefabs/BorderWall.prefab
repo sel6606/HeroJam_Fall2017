@@ -9,59 +9,46 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1278428393825932}
+  m_RootGameObject: {fileID: 1879436081754270}
   m_IsPrefabParent: 1
---- !u!1 &1278428393825932
+--- !u!1 &1879436081754270
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4500413757712194}
-  - component: {fileID: 114897938696012978}
+  - component: {fileID: 4903665564201568}
+  - component: {fileID: 65161365705560866}
   m_Layer: 0
-  m_Name: Forest
+  m_Name: BorderWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4500413757712194
+--- !u!4 &4903665564201568
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1278428393825932}
+  m_GameObject: {fileID: 1879436081754270}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.3413636, y: 0.63, z: 0.7137184}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114897938696012978
-MonoBehaviour:
+--- !u!65 &65161365705560866
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1278428393825932}
+  m_GameObject: {fileID: 1879436081754270}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c84fab672d505649b8e5271b1895708, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cellPrefab: {fileID: 114346724536055802, guid: 4c81dd98b2453a841bfaa4af584921b6,
-    type: 2}
-  playerPrefab: {fileID: 0}
-  walls:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  wallCol: []
-  sizeX: 4
-  sizeZ: 4
-  increaseSpeed: 0
-  increaseSpeedTime: 0
-  burnChance: 0.25
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

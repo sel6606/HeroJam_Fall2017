@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114447622117233862}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,6 +57,8 @@ GameObject:
   - component: {fileID: 4330537163515232}
   - component: {fileID: 198081812638753968}
   - component: {fileID: 199338070185336772}
+  - component: {fileID: 76049847440895402}
+  - component: {fileID: 114411905538526852}
   m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
@@ -129,7 +131,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294967039
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -141,6 +143,19 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
+--- !u!76 &76049847440895402
+WorldParticleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1825919263392990}
+  m_BounceFactor: 0
+  m_CollisionEnergyLoss: 0
+  m_CollidesWith:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_SendCollisionMessage: 1
+  m_MinKillVelocity: 0
 --- !u!81 &81413925311817782
 AudioListener:
   m_ObjectHideFlags: 1
@@ -155,6 +170,17 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1393518693404368}
   m_Enabled: 1
+--- !u!114 &114411905538526852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1825919263392990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc2875bbff9c9b4a9efebf113f07263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114447622117233862
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -246,7 +272,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 1024790729
+  randomSeed: 1228244553
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -2291,9 +2317,9 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 3
-    type: 0
+    type: 1
     collisionMode: 0
     plane0: {fileID: 0}
     plane1: {fileID: 0}
@@ -2342,7 +2368,7 @@ ParticleSystem:
         m_RotationOrder: 4
     m_Bounce:
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2381,7 +2407,7 @@ ParticleSystem:
         m_RotationOrder: 4
     m_EnergyLossOnCollision:
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2427,7 +2453,7 @@ ParticleSystem:
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 1
   TriggerModule:
