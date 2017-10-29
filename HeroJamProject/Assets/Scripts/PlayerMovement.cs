@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[RequireComponent (typeof (CharacterController))]
+[RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
 
@@ -15,55 +15,58 @@ public class PlayerMovement : MonoBehaviour
     float horizontalView;
     float verticalView;
 
-    
+
 
     #endregion
 
-   
+
 
     // Use this for initialization
-    
-    void Start ()
+
+    void Start()
     {
         character = GetComponent<CharacterController>();
         horizontalView = 0;
         verticalView = 0;
 
-        
-	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    }
+
+    // Update is called once per frame
+    void Update()
     {
-        if (character.isGrounded)
+        if (!GameInfo.instance.Paused)
         {
-            movementDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            movementDirection = transform.TransformDirection(movementDirection);
-            movementDirection *= speed;
-        }
-
-        if(Input.GetMouseButton(0))
-        {
-            if(gameObject.GetComponentInChildren<ParticleSystem>().isStopped)
+            if (character.isGrounded)
             {
-                gameObject.GetComponentInChildren<ParticleSystem>().Play();
-            } 
+                movementDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+                movementDirection = transform.TransformDirection(movementDirection);
+                movementDirection *= speed;
+            }
+
+            if (Input.GetMouseButton(0))
+            {
+                if (gameObject.GetComponentInChildren<ParticleSystem>().isStopped)
+                {
+                    gameObject.GetComponentInChildren<ParticleSystem>().Play();
+                }
+            }
+            else if (gameObject.GetComponentInChildren<ParticleSystem>().isPlaying)
+            {
+                gameObject.GetComponentInChildren<ParticleSystem>().Stop();
+                gameObject.GetComponentInChildren<ParticleSystem>().Clear();
+            }
+
+            movementDirection.y -= 9.8f * Time.deltaTime;
+
+
+            character.Move(movementDirection * Time.deltaTime);
+
+
+
+            PlayerRotation();
         }
-        else if (gameObject.GetComponentInChildren<ParticleSystem>().isPlaying)
-        {
-            gameObject.GetComponentInChildren<ParticleSystem>().Stop();
-            gameObject.GetComponentInChildren<ParticleSystem>().Clear();
-        }
-
-        movementDirection.y -= 9.8f * Time.deltaTime;
-
-       
-        character.Move(movementDirection * Time.deltaTime);
-        
-        
-
-        PlayerRotation();
-	}
+    }
 
     private void PlayerRotation()
     {

@@ -56,6 +56,8 @@ public class MenuManager : MonoBehaviour {
     /// </summary>
     public void GameOver()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene("GameOver");
     }
 

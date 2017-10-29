@@ -29,6 +29,9 @@ public class ForestGenerator : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
         GameInfo.instance.BurnChance = burnChance;
         GenerateForest();
         timeElapsed = 0;
@@ -44,14 +47,15 @@ public class ForestGenerator : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        timeElapsed += Time.deltaTime;
-        if(timeElapsed >= increaseSpeedTime && increaseSpeed)
+        if(GameInfo.instance.Paused)
         {
-            GameInfo.instance.BurnChance += 0.01f;
-            timeElapsed = 0.0f;
+            timeElapsed += Time.deltaTime;
+            if (timeElapsed >= increaseSpeedTime && increaseSpeed)
+            {
+                GameInfo.instance.BurnChance += 0.01f;
+                timeElapsed = 0.0f;
+            }
         }
-
-
 	}
 
     /// <summary>
