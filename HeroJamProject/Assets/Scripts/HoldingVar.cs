@@ -23,6 +23,8 @@ public class HoldingVar : MonoBehaviour {
     {
         if (health == 0 )
         {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene("GameOver");
         }
         HealthBar();
