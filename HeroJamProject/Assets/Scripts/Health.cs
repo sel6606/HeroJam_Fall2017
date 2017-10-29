@@ -11,7 +11,7 @@ public class Health : MonoBehaviour {
     HoldingVar health;
 
    
-    bool onFire;
+
 
 
 	// Use this for initialization
@@ -33,13 +33,11 @@ public class Health : MonoBehaviour {
     {
         if (gameObject.tag == "OnFire") 
         {
-            onFire = true;
+            
             health.Damage();
         }
-        else
-        {
-            onFire = false;
-        }
+        
+            
         //Debug.Log(onFire);
     }
 
