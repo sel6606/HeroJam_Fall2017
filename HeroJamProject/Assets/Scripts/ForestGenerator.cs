@@ -27,6 +27,12 @@ public class ForestGenerator : MonoBehaviour
     private ForestCell[,] cells;
     private float timeElapsed;
 
+    private Texture2D perlinTex;
+    public Texture2D tex1;
+    public Texture2D tex2;
+    private float startTime = 0.0f;
+    private float step = 0.1f;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -34,6 +40,26 @@ public class ForestGenerator : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         GameInfo.instance.BurnChance = burnChance;
+
+        perlinTex = new Texture2D(sizeX, sizeZ);
+        Color[] pixelValues = new Color[sizeX * sizeZ];
+        float xCoord, yCoord = startTime;
+        for (int i = 0; i < sizeX; i++)
+        {
+            xCoord = startTime;
+            for (int j = 0; j < sizeZ; j++)
+            {
+                float value = Mathf.PerlinNoise(xCoord, yCoord);
+                //Debug.Log(value);
+                pixelValues[i * sizeZ + j] = new Color(value, value, value);
+                xCoord += step;
+            }
+            yCoord += step;
+        }
+        perlinTex.SetPixels(pixelValues);
+        perlinTex.Apply();
+        
+
         GenerateForest();
         timeElapsed = 0;
 
@@ -43,6 +69,8 @@ public class ForestGenerator : MonoBehaviour
             wallCol[i] = walls[i].GetComponent<BoxCollider>();
         }
         GenerateWalls();
+
+        
 	}
 	
 	// Update is called once per frame
@@ -151,6 +179,18 @@ public class ForestGenerator : MonoBehaviour
         Vector3 cellPos = new Vector3(xPos - sizeX * 0.5f + 0.5f, 0f, zPos - sizeZ * 0.5f + 0.5f);
         cellPos *= 2;
         newCell.transform.localPosition = cellPos;
+        
+        Material materials = newCell.GetComponentsInChildren<Renderer>()[0].material;
+        Debug.Log(perlinTex.GetPixel(xPos, zPos).grayscale);
+        if (materials != null)
+        {
+            if (perlinTex.GetPixel(xPos, zPos).grayscale <= 0.5f)
+            {
+                materials.mainTexture = tex1;
+            }
+            else materials.mainTexture = tex2;
+        }
+        
 
         newCell.GetComponent<Health>().manager = sManager;
 

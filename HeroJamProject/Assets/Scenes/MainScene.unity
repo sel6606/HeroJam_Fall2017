@@ -1379,6 +1379,8 @@ MonoBehaviour:
   increaseSpeed: 0
   increaseSpeedTime: 5
   burnChance: 0.01
+  tex1: {fileID: 2800000, guid: e5552968414f99b4a87b68db3bb36c87, type: 3}
+  tex2: {fileID: 2800000, guid: 56c6d7d37c40eab4bae295b090cd8330, type: 3}
 --- !u!4 &1333734375
 Transform:
   m_ObjectHideFlags: 0
