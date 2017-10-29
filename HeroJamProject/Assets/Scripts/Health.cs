@@ -42,7 +42,6 @@ public class Health : MonoBehaviour {
 
     private void OnParticleTrigger()
     {
-        Debug.Log("IT WORKED FUCK YEAH");
         if(gameObject.GetComponent<ForestCell>().OnFire)
         {
             gameObject.GetComponent<ForestCell>().Extinguish();

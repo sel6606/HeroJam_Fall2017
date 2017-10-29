@@ -14,6 +14,7 @@ public class GameInfo : MonoBehaviour
     private bool forestGenerated;
     private float burnChance;
     private int foxCount;
+    private bool paused;
     #endregion
 
     #region Properties
@@ -33,6 +34,12 @@ public class GameInfo : MonoBehaviour
     {
         get { return burnChance; }
         set { burnChance = value; }
+    }
+
+    public bool Paused
+    {
+        get { return paused; }
+        set { paused = value; }
     }
     #endregion
 
@@ -59,6 +66,8 @@ public class GameInfo : MonoBehaviour
         //Initializes either the default values or the values from the previous scene
         forestGenerated = instance.ForestGenerated;
         burnChance = instance.BurnChance;
+        foxCount = instance.FoxCount;
+        paused = instance.Paused;
 	}
 	
 }

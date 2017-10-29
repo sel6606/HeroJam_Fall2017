@@ -24,21 +24,23 @@ public class SpreadFire : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameInfo.instance.ForestGenerated && !neighborsRetrieved)
+        if(!GameInfo.instance.Paused)
         {
-            GetNeighbors();
+            if (GameInfo.instance.ForestGenerated && !neighborsRetrieved)
+            {
+                GetNeighbors();
+            }
+
+            //If this cell is not yet on fire, do spread calculations
+            if (!gameObject.GetComponent<ForestCell>().OnFire && timeSinceSpreadCall >= secToWait)
+            {
+                Spread();
+                timeSinceSpreadCall = 0.0f;
+            }
+
+
+            timeSinceSpreadCall += Time.deltaTime;
         }
-
-        //If this cell is not yet on fire, do spread calculations
-        if (!gameObject.GetComponent<ForestCell>().OnFire && timeSinceSpreadCall >= secToWait)
-        {
-            Spread();
-            timeSinceSpreadCall = 0.0f;
-        }
-
-
-        timeSinceSpreadCall += Time.deltaTime;
-
     }
 
     /// <summary>
