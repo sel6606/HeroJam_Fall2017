@@ -24,15 +24,6 @@ public class Timer : MonoBehaviour {
             timer += Time.deltaTime;
         }
 
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("GameOver"))
-        {
-            timer = 0;
-        }
-
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelComplete"))
-        {
-            score=
-        }
-
+       
     }
 }
