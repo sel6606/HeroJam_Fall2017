@@ -85,6 +85,7 @@ public class ForestCell : MonoBehaviour
     public void Extinguish()
     {
         fireExtinguished = true;
+        gameObject.tag = "Untagged";
         Destroy(fire);
     }
 
