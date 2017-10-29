@@ -51,6 +51,8 @@ public class SpawnAnimals : MonoBehaviour {
         fox2.enabled = false;
         fox3.enabled = false;
 
+        GameInfo.instance.FoxCount = 0;
+
         // instantiate the list
         animalSpawns = new List<IntVector2>();
     }
