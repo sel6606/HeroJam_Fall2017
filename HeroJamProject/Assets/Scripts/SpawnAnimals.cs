@@ -38,7 +38,7 @@ public class SpawnAnimals : MonoBehaviour {
     private bool samePos = false;
 
     public int animalCount = 0;
-    private int foxCount = 3;
+    private int foxCount = 10;
 
 	// Use this for initialization
 	void Start ()
