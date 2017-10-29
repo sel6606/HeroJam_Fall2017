@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1417170791180490}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 82.95099, y: 198.83148, z: -6.844372}
+  m_LocalPosition: {x: -4.1022797, y: -1.0380465, z: -6.844372}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children: []
   m_Father: {fileID: 0}
@@ -56,7 +56,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 036ef04ca6710f3479cd7133500a11ef, type: 2}
+  - {fileID: 2100000, guid: 05faffff4c7eb20459c0175d2b78fff9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,7 +81,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1417170791180490}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: fb03a8ee74c95c34dbfd3ad431b3b790, type: 3}
 --- !u!65 &65519876659584764
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -105,8 +105,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a168316c8733be8428550fc716d9711e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fox1: {fileID: 0}
-  fox2: {fileID: 0}
-  fox3: {fileID: 0}
-  foxCollected: {fileID: 2800000, guid: 6ee9087f2592d8640bfeb7868d086c82, type: 3}
-  foxDanger: {fileID: 2800000, guid: a2c3f12a25b233a45ae14b3c5187838b, type: 3}
