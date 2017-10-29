@@ -29,6 +29,8 @@ public class ForestGenerator : MonoBehaviour
     private Texture2D perlinTex;
     public Texture2D tex1;
     public Texture2D tex2;
+    private float startTime = 0.0f;
+    private float step = 0.1f;
 
 	// Use this for initialization
 	void Start ()
@@ -36,14 +38,22 @@ public class ForestGenerator : MonoBehaviour
         GameInfo.instance.BurnChance = burnChance;
 
         perlinTex = new Texture2D(sizeX, sizeZ);
+        Color[] pixelValues = new Color[sizeX * sizeZ];
+        float xCoord, yCoord = startTime;
         for (int i = 0; i < sizeX; i++)
         {
+            xCoord = startTime;
             for (int j = 0; j < sizeZ; j++)
             {
-                float value = Mathf.PerlinNoise(i, j);
-                perlinTex.SetPixel(i, j, new Color(value, value, value));
+                float value = Mathf.PerlinNoise(xCoord, yCoord);
+                //Debug.Log(value);
+                pixelValues[i * sizeZ + j] = new Color(value, value, value);
+                xCoord += step;
             }
+            yCoord += step;
         }
+        perlinTex.SetPixels(pixelValues);
+        perlinTex.Apply();
         
 
         GenerateForest();
@@ -169,13 +179,13 @@ public class ForestGenerator : MonoBehaviour
         Debug.Log(perlinTex.GetPixel(xPos, zPos).grayscale);
         if (materials != null)
         {
-            if (perlinTex.GetPixel(xPos, zPos).grayscale <= 0.1f)
+            if (perlinTex.GetPixel(xPos, zPos).grayscale <= 0.5f)
             {
                 materials.mainTexture = tex1;
             }
+            else materials.mainTexture = tex2;
         }
-
-        else materials.mainTexture = tex2;
+        
 
         return newCell;
     }
