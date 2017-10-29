@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SpawnAnimals : MonoBehaviour {
@@ -80,6 +81,9 @@ public class SpawnAnimals : MonoBehaviour {
         if (GameInfo.instance.FoxCount == 3)
         {
             fox3.enabled = true;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("LevelComplete");
         }
     }
     /// <summary>
