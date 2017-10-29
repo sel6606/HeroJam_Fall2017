@@ -2,23 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour {
+public class Health : MonoBehaviour
+{
 
     
-  
-
-    GameObject manager;
-    HoldingVar health;
-
-   
-
+    public GameObject manager;
+    private HoldingVar health;
 
 
 	// Use this for initialization
 	void Start ()
     {
        
-        manager = GameObject.Find("SceneManager");
+        //manager = GameObject.Find("SceneManager");
         health = manager.GetComponent<HoldingVar>();
 	}
 	
@@ -36,14 +32,12 @@ public class Health : MonoBehaviour {
             
             health.Damage();
         }
+       
         
-            
-        //Debug.Log(onFire);
     }
 
     private void OnParticleTrigger()
     {
-        Debug.Log("IT WORKED FUCK YEAH");
         if(gameObject.GetComponent<ForestCell>().OnFire)
         {
             gameObject.GetComponent<ForestCell>().Extinguish();

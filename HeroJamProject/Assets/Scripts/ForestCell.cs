@@ -48,16 +48,19 @@ public class ForestCell : MonoBehaviour
     /// </summary>
     private void LateUpdate()
     {
-        if (setOnFire)
+        if(!GameInfo.instance.Paused)
         {
-            onFire = true;
-            setOnFire = false;
-        }
+            if (setOnFire)
+            {
+                onFire = true;
+                setOnFire = false;
+            }
 
-        if(fireExtinguished)
-        {
-            onFire = false;
-            fireExtinguished = false;
+            if (fireExtinguished)
+            {
+                onFire = false;
+                fireExtinguished = false;
+            }
         }
     }
 
@@ -85,6 +88,7 @@ public class ForestCell : MonoBehaviour
     public void Extinguish()
     {
         fireExtinguished = true;
+        gameObject.tag = "Untagged";
         Destroy(fire);
     }
 
